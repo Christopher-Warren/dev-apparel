@@ -9,10 +9,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.11.0",
+    "axios": "^0.21.0",
     "bootstrap": "^4.4.1",
+    "mongoose": "^5.10.15",
     "next": "latest",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "stripe": "^8.123.0",
+    "use-shopping-cart": "^2.2.0"
   }
 }
