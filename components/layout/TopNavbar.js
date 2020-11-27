@@ -9,16 +9,22 @@ import {
   Col,
 } from "react-bootstrap";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
 import CartModal from "../shop/CartModal";
 
 const TopNavbar = (props) => {
   const [show, setShow] = useState(false);
+  const [count, setCount] = useState();
+  const [total, setTotal] = useState();
   const { cartCount, formattedTotalPrice, clearCart } = useShoppingCart();
 
-  console.log(formattedTotalPrice);
+  useEffect(() => {
+    setCount(cartCount);
+    setTotal(formattedTotalPrice);
+  });
+
   return (
     <Navbar
       collapseOnSelect
@@ -51,7 +57,7 @@ const TopNavbar = (props) => {
           <Nav>
             <div className="row ml-0">
               <div className="cart-icon mt-2" onClick={() => setShow(!show)}>
-                <span className="cart-icon-counter">12</span>
+                <span className="cart-icon-counter">{count}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -75,7 +81,7 @@ const TopNavbar = (props) => {
                 My Cart
                 <br />
                 <div className="lead mb-2">
-                  {formattedTotalPrice}
+                  {total}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
