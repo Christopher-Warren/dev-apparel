@@ -1,6 +1,6 @@
 import React from "react";
 
-const Categories = () => {
+const CategoryCard = () => {
   return (
     <div className="container hero-categories">
       <div className="row">
@@ -53,4 +53,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default CategoryCard;

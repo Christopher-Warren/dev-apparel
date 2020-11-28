@@ -4,46 +4,46 @@
 a {
   text-decoration: none !important;
 }
-
-.md-container {
-  max-width: 800px;
-  align-content: center;
+/* TYPOGRAPHY */
+.card-text-name {
+  color: #fe696a;
 }
-
-.sml-card {
-  width: 22rem;
-  margin: 1rem 0;
+.card-text-price {
+  color: #8469fe;
 }
-
-.cntr-footer {
-  height: 80px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #ccc;
-}
-
-.sml-logo {
-  height: 1em;
-  margin-left: 10px;
-}
-.modal-90w {
-  width: 90%;
+.card-button {
+  border: #ff3e3e;
+  color: #ff3e3e;
+  cursor: pointer;
 }
 /* BEGIN MODAL */
-/* BEGIN MODAL */
+/* STYLING */
+
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-card {
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+}
 
 .modal.right .modal-dialog {
   position: fixed;
   margin: auto;
   width: 320px;
   height: 100%;
+  border-radius: 0%;
+  border: 0;
   -webkit-transform: translate3d(0%, 0, 0);
   -ms-transform: translate3d(0%, 0, 0);
   -o-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0);
-  right: 0;
+}
+/* allow background to be interactable */
+.fade.right.modal.show {
+  width: 0%;
 }
 
 .modal.right .modal-content {
@@ -57,12 +57,36 @@ a {
   padding: 15px 15px 80px;
 }
 
-.bg-1 {
-  background-color: aqua;
+.modal.right.fade .modal-dialog {
+  -webkit-transition: opacity 3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 3s linear, right 0.3s ease-out;
+  -o-transition: opacity 3s linear, right 0.3s ease-out;
+  transition: opacity 3s linear, right 0.3s ease-out;
+  right: -320px;
 }
-.bg-2 {
-  background-color: burlywood;
+.fade.right.modal.show .modal-dialog {
+  right: 0;
 }
+/* MODAL TOUCHUP */
+body.modal-open {
+  overflow: scroll !important;
+  width: 100vw;
+  overflow-x: hidden !important;
+}
+nav {
+  padding-right: 0 !important;
+}
+
+.disable-scrollbars::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+/* END MODAL */
 
 .bg-page {
   background-color: #e6e6e6 !important;
@@ -253,4 +277,9 @@ a {
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(60%);
+}
+
+/* CART CARDS */
+
+.cart-card {
 }

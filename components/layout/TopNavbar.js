@@ -15,11 +15,11 @@ import { useShoppingCart } from "use-shopping-cart";
 import CartModal from "../shop/CartModal";
 
 const TopNavbar = (props) => {
-  const [show, setShow] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const [count, setCount] = useState();
   const [total, setTotal] = useState();
   const { cartCount, formattedTotalPrice, clearCart } = useShoppingCart();
-
+  console.log("nav rendered");
   useEffect(() => {
     setCount(cartCount);
     setTotal(formattedTotalPrice);
@@ -45,18 +45,13 @@ const TopNavbar = (props) => {
             <Link href="/shop">
               <Nav.Link href="/shop">Shop</Nav.Link>
             </Link>
-            <Button
-              variant="danger"
-              onClick={() => {
-                clearCart();
-              }}
-            >
-              Click me
-            </Button>
           </Nav>
           <Nav>
             <div className="row ml-0">
-              <div className="cart-icon mt-2" onClick={() => setShow(!show)}>
+              <div
+                className="cart-icon mt-2"
+                onClick={() => setShowCart(!showCart)}
+              >
                 <span className="cart-icon-counter">{count}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +71,7 @@ const TopNavbar = (props) => {
               <div
                 className="ml-3 text-muted"
                 style={{ cursor: "pointer" }}
-                onClick={() => setShow(!show)}
+                onClick={() => setShowCart(!showCart)}
               >
                 My Cart
                 <br />
@@ -128,7 +123,7 @@ const TopNavbar = (props) => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <CartModal showCart={show} setShowCart={setShow} />
+      <CartModal showCart={showCart} setShowCart={setShowCart} />
     </Navbar>
   );
 };
