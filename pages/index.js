@@ -4,6 +4,7 @@ import { Container, Row, Card, Button } from "react-bootstrap";
 import Image from "next/image";
 import CategoryCard from "../components/layout/CategoryCard";
 import ShopGridList from "../components/shop/ShopGridList";
+import { Router } from "next/router";
 
 // <img src="/categories/lifestylemens.jpg" className='img-fluid'/>
 

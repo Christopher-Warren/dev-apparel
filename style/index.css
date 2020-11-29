@@ -4,6 +4,26 @@
 a {
   text-decoration: none !important;
 }
+/* Always scroll */
+body {
+  overflow-y: scroll;
+}
+/* Padding to offset fixed navbar */
+body {
+  padding-top: 56px;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    padding-top: 78px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
 /* TYPOGRAPHY */
 .card-text-name {
   color: #fe696a;
@@ -27,6 +47,8 @@ a {
   padding: 10px 0;
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
+  /* Solution for overlapping border:
+     Set negative margin matching border thickness */
   margin-top: -1px;
 }
 
@@ -278,9 +300,4 @@ nav {
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(60%);
-}
-
-/* CART CARDS */
-
-.cart-card {
 }

@@ -35,9 +35,9 @@ const CartModal = ({ showCart, setShowCart }) => {
   const getCart = () => {
     return Object.entries(cartDetails).map((product) => {
       const item = product[1];
-      console.log(product[1]);
+
       return (
-        <div className="modal-card ">
+        <div className="modal-card " key={item.sku}>
           <Row className="my-auto align-items-center">
             <Col xs={6} md={4}>
               <Image src={item.image} thumbnail />

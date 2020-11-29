@@ -1,23 +1,10 @@
-import mongoose, { Schema } from "mongoose";
-
-mongoose
-  .connect(process.env.MONGODB_KEY, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Mongo Connected"));
-
-let Products;
-
-try {
-  Products = mongoose.model("products", new Schema({}));
-  console.log("Model already exists");
-} catch (error) {
-  Products = mongoose.model("products");
-  console.log(Products, "model created");
-}
+// function connect helper
+import Mongoose from "../../../../utils/Mongoose";
+import Products from "../../../../models/Product";
 
 export default async (req, res) => {
+  await Mongoose();
+
   const {
     method,
     query: { category },
@@ -26,15 +13,14 @@ export default async (req, res) => {
   switch (method) {
     case "GET":
       const Items = await Products.find({ category });
-
-      if (Items.length === 0) {
-        res.status(200).json({ success: true, error: "No Products Found" });
+      if (Items === null) {
+        return res
+          .status(200)
+          .json({ success: false, error: "No Products Found" });
       } else {
         res.status(200).json({ Items });
       }
-
       break;
-
     default:
       res.status(400).json({ success: false });
   }

@@ -12,17 +12,25 @@ import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
-const ShopGridList = () => {
+const ShopGridList = ({ category }) => {
   const { addItem, cartDetails } = useShoppingCart();
 
   const [products, setProducts] = useState([]);
+
   const radioRef = useRef();
   useEffect(() => {
-    const getProducts = async () => {
-      const { data } = await axios.get("/api/products/");
-      setProducts(data.Items);
+    const getProducts = async (category) => {
+      if (!category) {
+        const { data } = await axios.get("/api/products/");
+
+        setProducts(data.Items);
+      } else {
+        const { data } = await axios.get(`/api/products/category/${category}`);
+
+        setProducts(data.Items);
+      }
     };
-    getProducts();
+    getProducts(category);
   }, []);
 
   const cartProducts = [];
