@@ -169,14 +169,14 @@ nav {
 .card-shadow {
   box-shadow: 0 0 20px rgba(120, 154, 170, 0.425);
 }
-
+/* Custom Button */
 .btn-custom {
-  background-color: #fe696a;
-  border: 1px solid rgba(255, 219, 219, 0);
+  background-color: #fe696a !important;
+  border: 1px solid rgba(255, 219, 219, 0) !important;
 }
 .btn-custom:hover {
-  background-color: #cc5353;
-  border: 1px solid rgba(255, 142, 142, 0);
+  background-color: #cc5353 !important;
+  border: 1px solid rgba(255, 142, 142, 0) !important;
 }
 
 .btn-custom:active {
@@ -187,46 +187,40 @@ nav {
 }
 
 .btn-custom:focus {
-  background-color: #cc5353;
+  background-color: #cc5353 !important;
   box-shadow: none !important;
   outline: none !important;
   border: 1px solid rgb(255, 219, 219);
 }
 
-/*
-.btn-size {
-  background-color: #d85555 !important;
-  border: 1px solid rgba(255, 219, 219, 0) !important;
-  outline: none !important;
+/* Custom Filter Items Button */
+.btn-custom-items {
+  background-color: #ffffff !important;
+  border: 1px solid#a13939 !important;
+  color: #a13939 !important;
 }
 
-.btn-size:hover {
-  background-color: #913c3c !important;
-  border: 1px solid rgba(255, 142, 142, 0);
-  outline: none !important;
+.btn-custom-items:hover {
+  background-color: #cc5353 !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 142, 142, 0) !important;
 }
 
-.btn-size + .active {
-  background-color: #913c3c !important;
+.btn-custom-items:active {
+  background-color: #a13939 !important;
+  color: #ffffff !important;
   box-shadow: none !important;
   outline: none !important;
   border: 1px solid #fe696a !important;
 }
 
-.btn-size:focus {
-  background-color: #cc5353;
+.btn-custom-items:focus {
+  color: #ffffff !important;
+  background-color: #cc5353 !important;
   box-shadow: none !important;
   outline: none !important;
   border: 1px solid rgb(255, 219, 219);
 }
-
-.btn-size:checked {
-  background-color: #913c3c;
-  box-shadow: none !important;
-  outline: none !important;
-  border: 1px solid rgb(255, 219, 219);
-}
-*/
 
 .btn-size {
   background-color: #d8555500;
@@ -298,6 +292,47 @@ nav {
 }
 
 .carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+.carousel-control-prev /* Changes carousel control color */ {
   filter: invert(60%);
+}
+
+/* Filter Button */
+
+/* Dropdown.Menu */
+/* Removes styling from Dropdown.Item */
+.filter-style.dropdown-item {
+  border-radius: 2% !important;
+
+  min-width: 4rem !important;
+  padding: 0;
+}
+/* Sets width for buttons in Filter on <Dropdown.Toggle> */
+.filter-dropdown.dropdown-menu.show {
+  min-width: 5rem;
+  padding: 0;
+}
+/* Sets width for buttons in FilterItem on <Dropdown.Toggle> */
+.item-button.dropdown-toggle {
+  width: 5rem;
+}
+/* <Dropdown.Menu> for Items 
+.filter-item.dropdown-menu {
+  margin-left: 90px;
+}
+*/
+/* Dropdown.Item */
+.filter-item.dropdown-item:hover,
+.filter-item.dropdown-item:active,
+.filter-item.dropdown-item:focus {
+  background-color: #d85555;
+  color: aliceblue;
+}
+.filter-arrow {
+  position: fixed;
+  margin-top: 5px;
+  margin-left: 70px;
+  color: #ffffff;
+}
+.filter-arrow:hover {
+  color: #ffffff;
 }
