@@ -12,10 +12,15 @@ import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
-const ShopGridList = ({ category }) => {
-  const { addItem, cartDetails } = useShoppingCart();
+import Filter from "./Filter";
 
+const ShopGridList = ({ category }) => {
+  console.log("shopgridlist rendered");
+  const { addItem, cartDetails } = useShoppingCart();
   const [products, setProducts] = useState([]);
+
+  const [tech, setTech] = useState("");
+  const [type, setType] = useState("");
 
   const radioRef = useRef();
   useEffect(() => {
@@ -30,11 +35,34 @@ const ShopGridList = ({ category }) => {
         setProducts(data.Items);
       }
     };
+    console.log("[EFFECT RAN]");
     getProducts(category);
   }, []);
 
+  //console.log(products);
+
+  let result;
+  if (type && tech) {
+    result = products.filter((i) => {
+      return (
+        i.tech.toLowerCase() == tech.toLowerCase() &&
+        i.type.toLowerCase() == type.toLowerCase()
+      );
+    });
+  } else if (tech) {
+    result = products.filter((i) => {
+      return i.tech.toLowerCase() == tech.toLowerCase();
+    });
+  } else if (type) {
+    result = products.filter((i) => {
+      return i.type.toLowerCase() == type.toLowerCase();
+    });
+  } else {
+    result = products;
+  }
+
   const cartProducts = [];
-  const renderList = products.map((product, index) => {
+  const renderList = result.map((product, index) => {
     cartProducts.push({
       name: product.title,
       description: product.description,
@@ -43,7 +71,6 @@ const ShopGridList = ({ category }) => {
       currency: "USD",
       image: product.images[0],
     });
-
     return (
       <div
         className="col-md-3 p-3 mt-3 mb-3 shadow-md rounded-lg show relative"
@@ -151,6 +178,7 @@ const ShopGridList = ({ category }) => {
   return (
     <div>
       <Container>
+        <Filter type={type} tech={tech} setType={setType} setTech={setTech} />
         <Row>{renderList}</Row>
       </Container>
     </div>

@@ -310,6 +310,11 @@ nav {
 .filter-dropdown.dropdown-menu.show {
   min-width: 5rem;
   padding: 0;
+  margin-top: -2px;
+}
+
+.second-menu.dropdown-menu.show {
+  margin-left: 0px !important;
 }
 /* Sets width for buttons in FilterItem on <Dropdown.Toggle> */
 .item-button.dropdown-toggle {
@@ -335,4 +340,37 @@ nav {
 }
 .filter-arrow:hover {
   color: #ffffff;
+}
+/* Prevent Filter button width from overflowing */
+.dropdown-container {
+  width: fit-content;
+}
+
+/* Filter Pill */
+.filter-pill {
+  background-color: #ffffff;
+  border: 1px solid #fe696a;
+  color: #fe696a;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+  border-radius: 32px;
+
+  transition: background-color 100ms ease-in-out;
+}
+
+.filter-pill:hover,
+.filter-pill:active {
+  background-color: #fe696a;
+
+  color: #ffffff;
+
+  border-radius: 32px;
+}
+
+.pill-icon-button {
 }

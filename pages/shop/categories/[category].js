@@ -29,7 +29,6 @@ const Category = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Container>
-        <Filter></Filter>
         <h1>{category}</h1>
         {renderPage()}
       </Container>
