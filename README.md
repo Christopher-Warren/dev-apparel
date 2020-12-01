@@ -20,6 +20,7 @@ Link: https://dev-apparel.vercel.app/
 ### Future Development:
 - Add authentication
 - Touch-up Store UI
+- Implement individual item endpoints
 
 
 ### Installation
