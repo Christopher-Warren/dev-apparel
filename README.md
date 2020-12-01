@@ -4,7 +4,7 @@
 
 
 
-#### Del-Apparel is an E-commerce App, built using - NextJS, MongoDB, React, Stripe, Use-Shopping-Cart, and Bootstrap.  
+#### Dev-Apparel is an E-commerce App, built using - NextJS, MongoDB, React, Stripe, Use-Shopping-Cart, and Bootstrap.  
 Link: https://dev-apparel.vercel.app/ 
 
 
