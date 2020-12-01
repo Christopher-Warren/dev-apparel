@@ -19,7 +19,7 @@ const TopNavbar = (props) => {
   const [count, setCount] = useState();
   const [total, setTotal] = useState();
   const { cartCount, formattedTotalPrice, clearCart } = useShoppingCart();
-  console.log("nav rendered");
+
   useEffect(() => {
     setCount(cartCount);
     setTotal(formattedTotalPrice);

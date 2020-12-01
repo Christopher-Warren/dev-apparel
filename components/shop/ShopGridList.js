@@ -15,7 +15,6 @@ import { useShoppingCart } from "use-shopping-cart";
 import Filter from "./Filter";
 
 const ShopGridList = ({ category }) => {
-  console.log("shopgridlist rendered");
   const { addItem, cartDetails } = useShoppingCart();
   const [products, setProducts] = useState([]);
 
@@ -35,11 +34,9 @@ const ShopGridList = ({ category }) => {
         setProducts(data.Items);
       }
     };
-    console.log("[EFFECT RAN]");
+
     getProducts(category);
   }, []);
-
-  //console.log(products);
 
   let result;
   if (type && tech) {
@@ -73,7 +70,7 @@ const ShopGridList = ({ category }) => {
     });
     return (
       <div
-        className="col-md-3 p-3 mt-3 mb-3 shadow-md rounded-lg show relative"
+        className="shop-card-pos col-md-3 p-3 mt-3 mb-3 shadow-md rounded-lg show relative"
         key={product._id}
       >
         <Carousel className="bg-light" interval={null}>
@@ -143,6 +140,7 @@ const ShopGridList = ({ category }) => {
             <Button
               className="btn btn-dark btn-custom mb-2"
               onClick={(e) => {
+                e.preventDefault();
                 addItem({
                   name: product.title,
                   description: product.description,
