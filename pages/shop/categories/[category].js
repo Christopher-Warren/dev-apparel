@@ -25,18 +25,11 @@ const Category = () => {
   return (
     <main>
       <Head>
-        <title>
-          Shop{" "}
-          {category && category.charAt(0).toUpperCase() + category.slice(1)} |
-          Dev-Apparel
-        </title>
+        <title>Shop Category | Dev-Apparel</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Container>
-        <h1 className="display-4 text-center">
-          Shop{" "}
-          {category && category.charAt(0).toUpperCase() + category.slice(1)}
-        </h1>
+        <h1 className="display-4 text-center">Shop Category</h1>
         {renderPage()}
       </Container>
     </main>
