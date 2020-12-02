@@ -11,6 +11,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
+import { useRouter } from "next/router";
 
 import Filter from "./Filter";
 
@@ -20,6 +21,8 @@ const ShopGridList = ({ category }) => {
 
   const [tech, setTech] = useState("");
   const [type, setType] = useState("");
+
+  const router = useRouter();
 
   const radioRef = useRef();
   useEffect(() => {
@@ -73,6 +76,12 @@ const ShopGridList = ({ category }) => {
         className="shop-card-pos col-md-3 p-3 mt-3 mb-3 shadow-md rounded-lg show relative"
         key={product._id}
       >
+        <div
+          className="product-details text-light shadow-sm"
+          onClick={() => router.push(`/products/${product._id}`)}
+        >
+          See Details
+        </div>
         <Carousel className="bg-light" interval={null}>
           {product.images.map((image) => {
             return (

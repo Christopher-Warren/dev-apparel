@@ -31,9 +31,7 @@ const Hero = () => {
               <h1 className="display-4">
                 <strong>Say "Hello, world!"</strong>
               </h1>
-              <p className="lead">
-                Custom Developer Shirts, Hoodies, & more...{" "}
-              </p>
+              <p className="lead">Developer Shirts, Hoodies, & more... </p>
 
               <p className="lead mt-2">
                 <a

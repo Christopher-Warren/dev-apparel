@@ -2,7 +2,30 @@
 import Mongoose from "../../../utils/Mongoose";
 import Products from "../../../models/Product";
 
-export default async (req, res) => {
+// export async function getProducts(id) {
+//   await Mongoose();
+
+//   const products = await Products.find({});
+//   console.log("AAAAAAAAAA");
+//   return products;
+// }
+/**
+ * @param {Date} myDate The date
+ * @param {string} myString The string
+ */
+export async function getProducts(id) {
+  await Mongoose();
+  let products;
+  if (!id) {
+    products = await Products.find({}).lean();
+  } else {
+    products = await Products.findOne({ sku: id }, { _id: 0 }).lean();
+  }
+
+  return products;
+}
+
+const getAllProducts = async (req, res) => {
   await Mongoose();
 
   const { method } = req;
@@ -22,3 +45,5 @@ export default async (req, res) => {
       res.status(400).json({ success: false });
   }
 };
+
+export default getAllProducts;

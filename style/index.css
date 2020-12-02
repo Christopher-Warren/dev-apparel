@@ -385,3 +385,26 @@ set rules for big screens only
   background-color: #f7f7f7;
 } 
 */
+
+/* Show Details Button on hover */
+.shop-card-pos:hover > .product-details {
+  z-index: 50 !important;
+}
+
+.product-details {
+  position: relative;
+  height: 30px;
+  margin-bottom: -30px;
+  background-color: #fe69697c;
+  text-align: center;
+  cursor: pointer;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+/* always shows product-details when screen is small */
+@media only screen and (max-width: 768px) {
+  .product-details {
+    z-index: 50;
+  }
+}

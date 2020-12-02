@@ -1,23 +1,10 @@
-import mongoose, { Schema } from "mongoose";
-
-mongoose
-  .connect(process.env.MONGODB_KEY, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Mongo Connected"));
-
-let Products;
-
-try {
-  Products = mongoose.model("products", new Schema({}));
-  console.log("Model already exists");
-} catch (error) {
-  Products = mongoose.model("products");
-  console.log(Products, "model created");
-}
+// function connect helper
+import Mongoose from "../../../utils/Mongoose";
+import Products from "../../../models/Product";
 
 export default async (req, res) => {
+  await Mongoose();
+
   const {
     method,
     query: { id },
