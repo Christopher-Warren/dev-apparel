@@ -26,14 +26,16 @@ const Category = () => {
     <main>
       <Head>
         <title>
-          Shop {category.charAt(0).toUpperCase() + category.slice(1)} |
+          Shop{" "}
+          {category && category.charAt(0).toUpperCase() + category.slice(1)} |
           Dev-Apparel
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Container>
         <h1 className="display-4 text-center">
-          Shop {category.charAt(0).toUpperCase() + category.slice(1)}
+          Shop{" "}
+          {category && category.charAt(0).toUpperCase() + category.slice(1)}
         </h1>
         {renderPage()}
       </Container>
