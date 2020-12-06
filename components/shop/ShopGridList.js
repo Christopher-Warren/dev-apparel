@@ -77,7 +77,7 @@ const ShopGridList = ({ category }) => {
         key={product._id}
       >
         <div
-          className="product-details text-light shadow-sm"
+          className="product-details text-dark shadow-sm"
           onClick={() => router.push(`/products/${product._id}`)}
         >
           See Details
