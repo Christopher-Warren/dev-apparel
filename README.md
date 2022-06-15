@@ -18,9 +18,9 @@ Link: https://dev-apparel.vercel.app/
 - Shopping cart and Stripe payments functionality
 
 ### Future Development:
-- Add authentication
-- Touch-up Store UI
-- Implement individual item endpoints
+- [ ] Add authentication
+- [ ] Touch-up Store UI
+- [X] Implement individual item endpoints
 
 
 ### Installation
