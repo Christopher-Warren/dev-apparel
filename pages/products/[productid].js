@@ -3,6 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import axios from "axios";
 
+import { useRouter } from "next/router";
+
 import { getProducts } from "../../pages/api/products/";
 import { Card, Alert, Form, Col, Button } from "react-bootstrap";
 import { useShoppingCart } from "use-shopping-cart";
@@ -40,6 +42,8 @@ export async function getStaticProps({ params, locale }) {
 }
 
 const product = ({ product }) => {
+  const router = useRouter();
+
   const { addItem } = useShoppingCart();
   const [quantity, setQuantity] = useState(1);
 
@@ -58,6 +62,29 @@ const product = ({ product }) => {
       </div>
       <div className="container single-product-container">
         <div className="single-product-card row">
+          <div
+            className="position-absolute mt-2 ml-4"
+            as="a"
+            style={{ zIndex: "10", cursor: "pointer", color: "#FE696A" }}
+            onClick={() => router.back()}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              height="18px"
+              className="mb-1"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>{" "}
+            Back
+          </div>
           <div className="">
             <Image src={product.image} height="640" width="640" />
           </div>
@@ -121,7 +148,6 @@ const product = ({ product }) => {
                     block={true}
                     size="lg"
                     onClick={(e) => {
-                      console.log(quantity);
                       e.preventDefault();
                       addItem(
                         {
